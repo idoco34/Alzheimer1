@@ -20,7 +20,8 @@ class Form1(Form1Template):
   @handle("file_loader_1", "change")
   def file_loader_1_change(self, file, **event_args):
     if file:  # Ensure that a file has been uploaded
-      uploaded_image = self.file_loader_1.file
-      #self.image_loaded.source = uploaded_image
+      uploaded_image = self.file_loader_1.file      
+      self.image_1.source = uploaded_image
       result = anvil.server.call('predict_image', uploaded_image)
       self.text_box_3.text = result
+
